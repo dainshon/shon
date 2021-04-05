@@ -13,10 +13,10 @@ public class kuir {
 		makeCollection mc = new makeCollection();
 		makeKeyword mk = new makeKeyword();
 		indexer idx = new indexer();
+		searcher sc = new searcher();
 		HashMap<Integer, HashMap<String, Integer>> hm = new HashMap<>();
 		HashMap<String, Integer> count = new HashMap<>();
-		
-//		String filePath = args[1];
+
 
 		mc.getfile();
 		mc.makexml();
@@ -24,23 +24,11 @@ public class kuir {
 		mk.kkma(mc.files, mc.str, hm, count);
 		mk.makexml(mc.files, mc.food);
 		
-//		System.out.println("");
-//		for(Integer id : hm.keySet()) {
-//			System.out.println("======"+id+"=======");
-//			for(String key :  hm.get(id).keySet()) {
-//				System.out.println(key+" : "+hm.get(id).get(key));
-//			}
-//		}
-//		
-//		System.out.println("몇개의 문서에서 등장하는지");
-//		for(String word : count.keySet()) {
-//			System.out.println(word+" : "+count.get(word));
-//		}
 		
 		idx.save(hm,count);
 		idx.hashmap();
 
-
+		sc.CalcSim();
 	}
 
 }
